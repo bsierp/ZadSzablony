@@ -12,7 +12,7 @@ Skl1 - liczba, ktora ma zostac poddana modulowi
 Zwraca:
 Liczbe rzeczywista bedaca modulem liczby zespolonej
 */
-double modul(LZespolona Skl1)
+double abs(LZespolona Skl1)
 {
   double Wynik;
   Wynik=sqrt(Skl1.re*Skl1.re+Skl1.im*Skl1.im);
@@ -115,7 +115,7 @@ Podzielony parametr pierwszy przez drugi
 LZespolona operator / (LZespolona Skl1, LZespolona Skl2)
 {
   LZespolona Wynik;
-  Wynik=(Skl1*Sprzez(Skl2))/(modul(Skl2)*modul(Skl2));
+  Wynik=(Skl1*Sprzez(Skl2))/(abs(Skl2)*abs(Skl2));
   return Wynik;
   }
 /*
@@ -169,4 +169,14 @@ bool operator !=(LZespolona Skl1, LZespolona Skl2)
 LZespolona LZespolona::operator+=(const LZespolona &l){
 *this=*this+l;
   return *this;
+}
+LZespolona LZespolona::operator*=(const LZespolona & L2){
+  *this=*this*L2;
+  return *this;
+}
+LZespolona operator * (LZespolona Skl1, double Skl2){
+  LZespolona l;
+  l.re=Skl1.re*Skl2;
+  l.im=Skl1.im*Skl2;
+  return l;
 }

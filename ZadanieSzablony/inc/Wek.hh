@@ -16,7 +16,7 @@ class Wektor{
     TYP operator*(const Wektor<TYP,ROZMIAR> & W2) const;
     Wektor operator*(TYP skl) const;
     bool operator==(const Wektor<TYP,ROZMIAR> & W2) const{
-        TYP epsilon=0.00000000001;
+        double epsilon=0.00000000001;
 for(int i=0;i<ROZMIAR;i++){                                               
       if(!(abs(this->tab[i]-W2[i])<epsilon))
       return false;
@@ -28,8 +28,6 @@ for(int i=0;i<ROZMIAR;i++){
          return sqrt(*this * *this);
     }
 };
-template<>
-bool Wektor<LZespolona,5>::operator==(const Wektor<LZespolona,5> & W2) const;
 template<>
 double Wektor<LZespolona,5>::dlugosc() const;
 template<class TYP, int ROZMIAR>                                                
